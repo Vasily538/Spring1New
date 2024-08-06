@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New task</title>
+</head>
+<body>
+
+<form th:method="POST" th:action="@{/tasks}" th:object="${task}">
+    <label for="description">Enter description: </label>
+    <input type="text" th:field="*{description}" id="description"/>
+    <br/>
+    <label for="status">Choose status: </label>
+    <select id="status" name="status">
+        <option th:each="status : ${T(ru.ankudinov.spring1.domain.Status).values()}"
+                th:value="${status}"
+                th:text="${status}">
+        </option>
+    </select>
+
+    <br/>
+    <input type="submit" value="Create!"/>
+</form>
+
+</body>
+</html>

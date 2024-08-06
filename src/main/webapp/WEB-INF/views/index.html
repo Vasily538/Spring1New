@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<style>
+    li {
+        display: inline-block;
+    }
+</style>
+<body>
+
+<div  th:each="task : ${tasks}">
+    <a th:href="@{/tasks/{id}/edit(id=${task.getId()})}"
+       th:text="${task.getDescription() + ', ' + task.getStatus()}">task</a>
+</div>
+
+<br/>
+<hr/>
+
+<a href="/tasks/new">Create new task</a>
+<hr/>
+
+<ul>
+    Pages:
+<li th:each="i:${#numbers.sequence(1,pageCount)}">
+    <a th:href="@{/tasks(page=${i})}"
+       th:text="${i}"></a>
+</li>
+</ul>
+</body>
+</html>
