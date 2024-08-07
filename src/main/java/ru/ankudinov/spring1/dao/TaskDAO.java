@@ -2,8 +2,7 @@ package ru.ankudinov.spring1.dao;
 
 //import org.hibernate.query.Page;
 import ru.ankudinov.spring1.domain.Task;
-;
-;
+
 
 import java.util.List;
 
